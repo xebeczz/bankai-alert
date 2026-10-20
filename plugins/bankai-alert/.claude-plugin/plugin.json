@@ -1,0 +1,8 @@
+{
+  "name": "bankai-alert",
+  "version": "1.0.0",
+  "description": "Bankai-style sound alert for Claude Code: plays a dramatic release sound when Claude asks a question, needs permission, or is waiting for you.",
+  "author": {
+    "name": "Sakeel"
+  }
+}
