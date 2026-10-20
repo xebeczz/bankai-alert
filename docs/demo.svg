@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="380" viewBox="0 0 760 380" font-family="Consolas, Menlo, monospace" font-size="15">
+  <style>
+    .l { opacity: 0; animation: show 10s infinite; }
+    .l1 { animation-name: s1; } .l2 { animation-name: s2; } .l3 { animation-name: s3; }
+    .l4 { animation-name: s4; } .l5 { animation-name: s4; } .l6 { animation-name: s4; }
+    @keyframes s1 { 0%,3% {opacity:0} 5%,95% {opacity:1} 100% {opacity:0} }
+    @keyframes s2 { 0%,13% {opacity:0} 15%,95% {opacity:1} 100% {opacity:0} }
+    @keyframes s3 { 0%,25% {opacity:0} 27%,95% {opacity:1} 100% {opacity:0} }
+    @keyframes s4 { 0%,37% {opacity:0} 39%,95% {opacity:1} 100% {opacity:0} }
+    .bell { opacity: 0; animation: bell 10s infinite; transform-origin: 650px 70px; }
+    @keyframes bell {
+      0%,38% {opacity:0; transform: rotate(0)}
+      40% {opacity:1; transform: rotate(-18deg)} 43% {transform: rotate(18deg)}
+      46% {transform: rotate(-14deg)} 49% {transform: rotate(14deg)}
+      52% {transform: rotate(-6deg)} 55%,95% {opacity:1; transform: rotate(0)} 100% {opacity:0}
+    }
+    .wave { opacity: 0; fill: none; stroke: #f5b041; stroke-width: 3; stroke-linecap: round; animation: wave 1.2s infinite; }
+    .w2 { animation-delay: .3s; }
+    .waves { opacity: 0; animation: s4 10s infinite; }
+    @keyframes wave { 0% {opacity:0} 30% {opacity:1} 100% {opacity:0} }
+  </style>
+  <rect width="760" height="380" rx="12" fill="#1e1e2e"/>
+  <rect width="760" height="36" rx="12" fill="#2a2a3c"/>
+  <rect y="24" width="760" height="12" fill="#2a2a3c"/>
+  <circle cx="22" cy="18" r="6" fill="#ff5f57"/><circle cx="42" cy="18" r="6" fill="#febc2e"/><circle cx="62" cy="18" r="6" fill="#28c840"/>
+  <text x="380" y="23" fill="#9aa0b4" text-anchor="middle" font-size="13">claude — illustration</text>
+
+  <text class="l l1" x="24" y="76" fill="#cdd6f4"><tspan fill="#89b4fa">&gt;</tspan> Add a login page to the app</text>
+  <text class="l l2" x="24" y="112" fill="#a6adc8">● Reading src/routes.ts …</text>
+  <text class="l l3" x="24" y="140" fill="#a6adc8">● Planning the auth flow …</text>
+
+  <g class="l l4">
+    <rect x="20" y="166" width="560" height="170" rx="8" fill="none" stroke="#cba6f7" stroke-width="1.5"/>
+    <text x="38" y="194" fill="#cba6f7" font-weight="bold">? Which auth method should I use?</text>
+    <text x="38" y="230" fill="#a6e3a1">❯ 1. OAuth with Google (Recommended)</text>
+    <text x="55" y="260" fill="#cdd6f4">2. Email + password</text>
+    <text x="55" y="290" fill="#cdd6f4">3. Magic link</text>
+    <text x="38" y="320" fill="#6c7086" font-size="13">Enter to select · ↑/↓ to navigate</text>
+  </g>
+
+  <g class="bell">
+    <path d="M650 48 c-18 0 -28 14 -28 30 v20 l-8 10 h72 l-8 -10 v-20 c0 -16 -10 -30 -28 -30z" fill="#f5b041"/>
+    <circle cx="650" cy="114" r="7" fill="#f5b041"/>
+    <rect x="646" y="40" width="8" height="10" rx="3" fill="#f5b041"/>
+  </g>
+  <g class="waves">
+    <path class="wave" d="M700 60 q12 18 0 36"/>
+    <path class="wave w2" d="M712 50 q20 28 0 56"/>
+    <path class="wave" d="M600 60 q-12 18 0 36"/>
+    <path class="wave w2" d="M588 50 q-20 28 0 56"/>
+  </g>
+  <text class="l l6" x="650" y="160" fill="#f5b041" text-anchor="middle" font-weight="bold">♪ ding!</text>
+  <text class="l l6" x="650" y="184" fill="#9aa0b4" text-anchor="middle" font-size="13">you hear it from</text>
+  <text class="l l6" x="650" y="202" fill="#9aa0b4" text-anchor="middle" font-size="13">any tab or window</text>
+</svg>
