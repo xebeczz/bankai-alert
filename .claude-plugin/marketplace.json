@@ -1,0 +1,14 @@
+{
+  "name": "bankai-alert",
+  "description": "Bankai-style sound alerts for Claude Code (Windows, macOS, Linux).",
+  "owner": {
+    "name": "Sakeel"
+  },
+  "plugins": [
+    {
+      "name": "bankai-alert",
+      "source": "./plugins/bankai-alert",
+      "description": "Plays a Bankai-style release sound when Claude asks a question, needs permission, or is waiting for you."
+    }
+  ]
+}
