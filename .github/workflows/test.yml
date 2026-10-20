@@ -1,0 +1,32 @@
+name: test
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Script tests (stub players)
+        run: sh tests/run.sh
+      - name: macOS tools used by the plugin
+        if: runner.os == 'macOS'
+        run: |
+          command -v afplay afconvert afinfo
+          ls -la /System/Library/Sounds/Glass.aiff /System/Library/Sounds/Ping.aiff
+          afinfo plugins/bankai-alert/sounds/alert.wav | grep -E "File type|Data format|duration"
+          # set-sound's conversion path when ffmpeg is missing
+          afconvert -f WAVE -d LEI16@22050 -c 1 /System/Library/Sounds/Glass.aiff /tmp/converted.wav
+          afinfo /tmp/converted.wav | grep -E "File type|Data format"
+          # Real playback. CI runners may have no audio device, so report rather than fail.
+          if afplay plugins/bankai-alert/sounds/alert.wav; then echo "afplay: played OK"; else echo "afplay: exit $? (no audio device on runner?)"; fi
+      - name: Real run with the system afplay (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          start=$(date +%s)
+          echo '{"session_id":"real"}' | CLAUDE_ALERT_REPEAT=2 CLAUDE_ALERT_GAP_SECONDS=0 sh plugins/bankai-alert/scripts/alert.sh question
+          echo "two real plays took $(( $(date +%s) - start ))s (sound is 3.76s each)"
